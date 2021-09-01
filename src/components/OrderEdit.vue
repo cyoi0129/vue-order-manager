@@ -45,10 +45,8 @@ export default defineComponent({
     return {
       changeOrderStatus,
       currentShopID: computed(() => store.state.currentShop),
-      currentShopName: computed(
-        () => store.state.shops.find((shop) => shop.id === store.state.currentShop)?.name
-      ),
-      getUserName: computed(() => store.state.users.find(user => user.id === Number(props.order.user))?.name),
+      currentShopName: computed(() => store.getters.getShopData(store.state.currentShop).name),
+      getUserName: computed(() => store.getters.getUserData(Number(props.order.user)).name),
     };
   },
   methods: {

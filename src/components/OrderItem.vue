@@ -30,7 +30,7 @@ export default defineComponent({
     };
     return {
       setCurrentOrder,
-      getUserName: computed(() => store.state.users.find(user => user.id === Number(props.order.user))?.name),
+      getUserName: computed(() => store.getters.getUserData(Number(props.order.user)).name),
     };
   },
 });

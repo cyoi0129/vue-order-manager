@@ -29,7 +29,7 @@ export default defineComponent({
     }
     return {
       orderList: computed(() => store.state.orders),
-      currentShopName: props.shopName? props.shopName : store.state.shops.find(shop => shop.id === targetShopID)?.name,
+      currentShopName: computed(() => store.getters.getShopData(targetShopID).name),
       setCurrentOrder
     };
   },

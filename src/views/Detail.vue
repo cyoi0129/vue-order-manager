@@ -15,7 +15,7 @@ export default defineComponent({
   setup(props) {
     const store = useStore();
     return {
-      orderDetail: computed(() => store.state.orders.find(order => order.id === Number(props.id))),
+      orderDetail: computed(() => store.getters.getOrderData(Number(props.id))),
     };
   },
   methods: {},

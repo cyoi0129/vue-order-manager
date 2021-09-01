@@ -116,9 +116,15 @@ export default createStore<State>({
     }
   },
   getters: {
-    getShopData: (state: State, shopID: number) => {
+    getShopData: (state: State) => (shopID: number) => {
       return state.shops.find(shop => shop.id === shopID);
-    }
+    },
+    getUserData: (state: State) => (userID: number) => {
+      return state.users.find(user => user.id === userID);
+    },
+    getOrderData: (state: State) => (orderID: number) => {
+      return state.orders.find(order => order.id === orderID);
+    },
   },
   modules: {
   }
